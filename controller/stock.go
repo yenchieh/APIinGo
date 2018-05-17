@@ -1,15 +1,16 @@
 package controller
 
 import (
-	"github.com/gin-gonic/gin"
 	"net/http"
+	"github.com/gin-gonic/gin"
+
 )
 
 type Stock struct {
-	Name string `json:"name"`
-	Symbol string `json:"symbol"`
-	Open float32 `json:"open"`
-	Close float32 `json:"close"`
+	Name   string  `json:"name"`
+	Symbol string  `json:"symbol"`
+	Open   float32 `json:"open"`
+	Close  float32 `json:"close"`
 }
 type Stocks []Stock
 
