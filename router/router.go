@@ -10,9 +10,12 @@ func New() *gin.Engine {
 
 	r.Use(gin.Recovery())
 	r.Use(controller.Auth)
-	r.GET("/stock", controller.StockAPI)
 
-	r.GET("/stock/:symbol", controller.GetStockBySymbol)
+	api := r.Group("/api", controller.Auth)
+	api.GET("/stock", controller.StockAPI)
+	api.GET("/stock/:symbol", controller.GetStockBySymbol)
+	api.PUT("/stock", controller.AddStockData)
+	api.DELETE("/stock/:symbol", controller.DeleteStockDataBySymbol)
 
 	return r
 }
