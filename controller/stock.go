@@ -25,7 +25,7 @@ func init() {
 	savedStocks = append(savedStocks, stocks...)
 }
 
-func StockAPI(c *gin.Context) {
+func AllStocks(c *gin.Context) {
 	c.JSON(http.StatusOK, savedStocks)
 }
 
@@ -53,7 +53,7 @@ func GetStockBySymbol(c *gin.Context) {
 
 func AddStockData(c *gin.Context) {
 	var newStockData Stock
-	if err:= c.BindJSON(&newStockData); err != nil {
+	if err := c.BindJSON(&newStockData); err != nil {
 		c.JSON(http.StatusBadRequest, gin.H{
 			"message": "Please enter valid data",
 		})
